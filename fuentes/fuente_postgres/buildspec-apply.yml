@@ -1,7 +1,11 @@
 version: 0.2
 
-# TODO: buildspec de apply (cdk deploy) para fuente_postgres
 phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - pip install -r requirements.txt
   build:
     commands:
-      - echo "TODO: apply fuente_postgres"
+      - cdk deploy FuentePostgres-Dev --app "$CODEBUILD_SRC_DIR_PlanOutput" --require-approval never

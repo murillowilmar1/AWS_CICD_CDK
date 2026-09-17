@@ -1,7 +1,16 @@
 version: 0.2
 
-# TODO: buildspec de plan (cdk synth / cdk diff) para fuente_postgres
 phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - pip install -r requirements.txt
   build:
     commands:
-      - echo "TODO: plan fuente_postgres"
+      - cdk synth FuentePostgres-Dev --quiet
+
+artifacts:
+  base-directory: cdk.out
+  files:
+    - '**/*'
