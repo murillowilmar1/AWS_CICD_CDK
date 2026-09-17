@@ -19,7 +19,7 @@ PLAN_BUILDSPEC = {
                 # CodeBuild ejecuta los comandos con sh (no bash), asi que
                 # evitamos sintaxis bash-only como ${FUENTE^}.
                 'case "$FUENTE" in postgres) STACK_NAME=FuentePostgres-Prod ;; sqlserver) STACK_NAME=FuenteSqlserver-Prod ;; *) echo "FUENTE invalido: $FUENTE" >&2; exit 1 ;; esac',
-                "echo Sintetizando $STACK_NAME (FUENTE=$FUENTE)",
+                'echo "Sintetizando $STACK_NAME (FUENTE=$FUENTE)"',
                 'cdk synth "$STACK_NAME" --quiet',
             ],
         },
@@ -40,7 +40,7 @@ APPLY_BUILDSPEC = {
         "build": {
             "commands": [
                 'case "$FUENTE" in postgres) STACK_NAME=FuentePostgres-Prod ;; sqlserver) STACK_NAME=FuenteSqlserver-Prod ;; *) echo "FUENTE invalido: $FUENTE" >&2; exit 1 ;; esac',
-                "echo Aplicando $STACK_NAME (FUENTE=$FUENTE)",
+                'echo "Aplicando $STACK_NAME (FUENTE=$FUENTE)"',
                 'cdk deploy "$STACK_NAME" --app "$CODEBUILD_SRC_DIR_PlanOutput" --require-approval never',
             ],
         },
