@@ -12,7 +12,7 @@ PLAN_BUILDSPEC = {
     "phases": {
         "install": {
             "runtime-versions": {"python": "3.12"},
-            "commands": ["pip install -r requirements.txt"],
+            "commands": ["npm install -g aws-cdk", "pip install -r requirements.txt"],
         },
         "build": {
             "commands": [
@@ -33,7 +33,7 @@ APPLY_BUILDSPEC = {
     "phases": {
         "install": {
             "runtime-versions": {"python": "3.12"},
-            "commands": ["pip install -r requirements.txt"],
+            "commands": ["npm install -g aws-cdk", "pip install -r requirements.txt"],
         },
         "build": {
             "commands": [
