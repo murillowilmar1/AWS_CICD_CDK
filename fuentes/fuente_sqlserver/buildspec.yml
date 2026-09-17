@@ -1,0 +1,7 @@
+version: 0.2
+
+# TODO: buildspec de plan (cdk synth / cdk diff) para fuente_sqlserver
+phases:
+  build:
+    commands:
+      - echo "TODO: plan fuente_sqlserver"

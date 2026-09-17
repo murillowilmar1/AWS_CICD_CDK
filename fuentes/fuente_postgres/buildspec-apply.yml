@@ -1,0 +1,7 @@
+version: 0.2
+
+# TODO: buildspec de apply (cdk deploy) para fuente_postgres
+phases:
+  build:
+    commands:
+      - echo "TODO: apply fuente_postgres"
