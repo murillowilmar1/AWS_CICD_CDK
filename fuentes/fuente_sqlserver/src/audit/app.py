@@ -23,6 +23,7 @@ def handler(event, context):
         "row_count": event.get("row_count"),
         "audited_at": datetime.now(timezone.utc).isoformat(),
     }
+    print(record)
 
     key = f"audit/{SOURCE_PREFIX}/{record['audited_at']}-{uuid.uuid4().hex}.json"
     s3.put_object(

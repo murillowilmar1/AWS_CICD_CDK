@@ -1,7 +1,17 @@
 version: 0.2
 
-# TODO: buildspec de plan (cdk synth / cdk diff) para fuente_sqlserver
 phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - npm install -g aws-cdk
+      - pip install -r requirements.txt
   build:
     commands:
-      - echo "TODO: plan fuente_sqlserver"
+      - cdk synth FuenteSqlserver-Dev --quiet
+
+artifacts:
+  base-directory: cdk.out
+  files:
+    - '**/*'
